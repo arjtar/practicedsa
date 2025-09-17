@@ -73,7 +73,34 @@ nums = [8, 1, 2, 2, 3]
 print(smallerNumbersThanCurrent(nums))   
 
 
+#---------------------------------------------
 
+#Single number
+class Solution:
+    def singleNumber(self, nums: list[int]) -> int:
+        xor = 0
+        for num in nums:
+            xor^= num
+        return xor
+
+s = Solution()
+nums = [4, 1, 2, 1, 2,4,6]
+print(s.singleNumber(nums))
+
+#---------------------------------------------
+#coinchange
+
+def coinchange(coins, amount):
+
+    dp = [amount+1] * (amount + 1)
+    dp[0] = 0
+
+    for i in range(1, amount+1):
+        for c in coins:
+            if (i - c) >=0:
+                dp[i] = min(dp[i], 1 + dp[i -c])
+    return dp[amount] if (dp[amount] != amount+1) else -1
+print(coinchange([1, 2, 5], 11))
 
 
 
