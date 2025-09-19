@@ -141,3 +141,19 @@ def maxSubArray(arr):
 
 arr = [-2, 1, -3, -1, 2, 1, -5]
 print(maxSubArray(arr))
+
+
+#---------------------------------------------
+#9. counting bits
+
+def countingBits(n):
+
+    dp = [0] * (n+1)
+    offset = 1
+
+    for i in range(1, n+1):
+        if offset * 2 == i:
+            offset = i
+        dp[i] = 1 + dp[i-offset]
+    return dp
+print(countingBits(5))  # Output: [0, 1, 1, 2, 1, 2]
