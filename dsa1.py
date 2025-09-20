@@ -156,4 +156,44 @@ def countingBits(n):
             offset = i
         dp[i] = 1 + dp[i-offset]
     return dp
-print(countingBits(5))  # Output: [0, 1, 1, 2, 1, 2]
+print(countingBits(5))  
+
+
+#---------------------------------------------
+#10.subset 
+
+def subsets(nums):
+    def backtrack(start, path):
+
+        result.append(path[:])
+        for i in range(start, len(nums)):
+
+            path.append(nums[i])
+            backtrack(i +1, path)
+            path.pop()
+
+    result = []
+    backtrack(0, [])
+    return result
+nums = [1, 2, 3]
+print(subsets(nums))
+
+
+#---------------------------------------------
+#11.combination
+
+def combine(n,k):
+    def backtrack(start, path):
+
+        if len(path) == k:
+            result.append(path[:])
+            return
+        for i in range(start, n+1):
+            path.append(i)
+            backtrack(i+1, path)
+            path.pop()
+
+    result = []
+    backtrack(1, [])
+    return result 
+print(combine(4,2))
