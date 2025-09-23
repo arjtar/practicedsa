@@ -233,6 +233,39 @@ node4.next = node2
 s = Solution()
 print(s.hasCycle(node1))  
 
+#--------------------------------------
+#13.Reverse linked list
+
+def reverseLinkedList(head):
+
+    prev = None
+    curr = head
+
+    while (curr!= None):
+        next_pointer = curr.next
+        curr.next = prev
+        prev = curr
+        curr = next_pointer
+    return prev
+    
+node1 = ListNode(5)
+node2 = ListNode(2)
+node3 = ListNode(3)
+node1.next = node2
+node2.next = node3
+
+new_head = reverseLinkedList(node1)
+
+# Print reversed list
+curr = new_head
+while curr:
+    print(curr.val, end=" ")
+    curr = curr.next
+   
+
+
+
+
 
 
 
