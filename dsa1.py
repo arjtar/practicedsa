@@ -262,7 +262,42 @@ while curr:
     print(curr.val, end=" ")
     curr = curr.next
    
+#--------------------------------------
+#14. Remove Elements
 
+def removeElements(head, val):
+
+    dummy = ListNode(-1)
+    dummy.next = head
+
+    current_node = dummy
+    while current_node.next != None:
+        if current_node.next.val == val:
+            current_node.next = current_node.next.next
+        else:
+            current_node = current_node.next
+    return dummy.next
+node1 = ListNode(1)
+node2 = ListNode(2)
+node3 = ListNode(6)
+node4 = ListNode(3)
+node5 = ListNode(4)
+node6 = ListNode(5)
+node7 = ListNode(6)
+node1.next = node2
+node2.next = node3
+node3.next = node4
+node4.next = node5
+node5.next = node6
+node6.next = node7
+
+new_head = removeElements(node1, 6)
+
+
+curr = new_head
+while curr:
+    print(curr.val, end=" ")
+    curr = curr.next
 
 
 
